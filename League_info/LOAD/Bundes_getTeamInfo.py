@@ -4,10 +4,10 @@ import mysql.connector
 conn = mysql.connector.connect(user='root', password='tmzkdnxj1', host='34.64.214.96', database ='scout', port='3306')
 cursor = conn.cursor()
 
-url = "https://v3.football.api-sports.io/leagues?name=Premier%20League&country=England&season=2022"
+url = "https://v3.football.api-sports.io/leagues?name=Serie%20A&country=Italy&season=2022"
 headers = {
     'x-rapidapi-host': "v3.football.api-sports.io",
-    'x-rapidapi-key': "a86d420d0d8840c8e722e16cf9742f7b"
+    'x-rapidapi-key': "a68636f8f2c18511179c56f15e95080c"
     }
 
 data = requests.request("GET", url, headers=headers).json()
