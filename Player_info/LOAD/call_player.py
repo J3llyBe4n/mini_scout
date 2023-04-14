@@ -18,7 +18,8 @@ getTeamApiIdSql = 'SELECT DISTINCT hidden_team_id.api_team_id FROM team_info  JO
 cursor.execute(getTeamApiIdSql)
 tmpTeamRaw = cursor.fetchall()
 
-
+##########
+#########
 #pl 팀 id 리스트화
 for i in range(len(tmpTeamRaw)):
     tmpTeamId.append(tmpTeamRaw[i][0])
