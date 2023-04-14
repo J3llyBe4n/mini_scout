@@ -14,3 +14,8 @@ v1.1
 
 team_info + player_info etl 스크립트 초안 작성
 *** 테스트 완료 *** 
+
+2023.04.14
+
+league_info 테이블 .py 스케쥴링
+team_info 테이블 클랜징 및 . py 구조화

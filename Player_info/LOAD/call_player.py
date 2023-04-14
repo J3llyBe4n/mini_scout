@@ -66,7 +66,7 @@ cursor.execute(sql1)
 result1 = cursor.fetchall()
 result2 = result1[0][0]
 
-sql2 = 'insert into player_info (season_id,team_id,first_name,last_name,uniform_number,date_of_birth,main_feet,height,weight,position,player_picture,player_nation) values (%d,%d,"%s","%s",%d,"%s","%s",%d,%d,"%s","%s","%s")' %(tmpSeasonYear,result2,insertPlayerInfoList[5],insertPlayerInfoList[4],insertPlayerInfoList[1],insertPlayerInfoList[6],'',insertPlayerInfoList[7],insertPlayerInfoList[8],insertPlayerInfoList[2],insertPlayerInfoList[3],'')
+sql2 = 'insert into player_info (season_id,team_id,first_name,last_name,uniform_number,date_of_birth,main_feet,height,weight,position,player_picture,player_nation) values (%d,%d,"%s","%s",%d,"%s","%s",%d,%d,"%s","%s","%s")' %(tmpSeasonYear,result2,insertPlayerInfoList[5],insertPlayerInfoList[4],insertPlayerInfoList[1],insertPlayerInfoList[6],'',insertPlayerInfoList[7],insertPlayerInfoList[8],insertPlayerInfoList[2],insertPlayerInfoList[3],insertPlayerInfoList[9])
 cursor.execute(sql2)
 cursor.commit()
 

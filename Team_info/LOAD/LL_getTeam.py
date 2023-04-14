@@ -5,9 +5,9 @@ import requests as re
 
 
 #PL 스크립트에서 필요한 상수값 + 확장성은 hidden에서 끌어올수 있음 좋음
-tmpLeagueName = "Premier League"
+tmpLeagueName = "La Liga"
 tmpSeasonYear = 2022
-tmpLeagueID = 39
+tmpLeagueID = 140
 
 getTeamUrl = "https://v3.football.api-sports.io/teams?season=%d&league=%d" %(tmpSeasonYear, tmpLeagueID)
 headers={
@@ -55,7 +55,7 @@ seasonRawData = cursor.fetchall()
 insertSeasonId = seasonRawData[0][0]
 
 
-getLeagueSQL = 'select league_id from league_info where league_name = "%s"' %tmpLeagueName
+getLeagueSQL = 'select league_id from league_info where league_name = "%s"'%tmpLeagueName
 
 #sql문 문제 디버깅
 #print(getLeagueSQL)
@@ -103,38 +103,24 @@ for i in range(len(insertTeamInfoList)):
 
     #injection data에 formation record도 load 
     insertTeamInfoList[i].append(insertFormationId)
+    print(insertTeamInfoList[i])
+
 
 #print(insertTeamInfoList)
 
 for i in range(len(insertTeamInfoList)):
     tmpDataSet = insertTeamInfoList[i]
-    #insertDataSQL = 'insert into team_info (season_id, league_id, formation_id, team_name, stadium_name, stadium_address, team_est_date, owner, head_coach) values (%d, %d, %d, "%s", "%s", "%s", %d, "%s", "%s")' %(tmpDataSet[5], tmpDataSet[6], tmpDataSet[-1], tmpDataSet[0], tmpDataSet[3], tmpDataSet[4], tmpDataSet[2], tmpDataSet[-2], tmpDataSet[-3])
-    #cursor.execute(insertDataSQL)
-    #conn.commit()
-    #print("%d번쨰 셋 밀어넣기 성공"%i)
-
-    insertHiddenIdSQL = 'insert into hidden_team_id (team_name, api_team_id) values ("%s", %d)'%(tmpDataSet[0], tmpDataSet[1])
-    cursor.execute(insertHiddenIdSQL)
+    insertDataSQL = 'insert into team_info (season_id, league_id, formation_id, team_name, stadium_name, stadium_address, team_est_date, owner, head_coach) values (%d, %d, %d, "%s", "%s", "%s", %d, "%s", "%s")' %(tmpDataSet[5], tmpDataSet[6], tmpDataSet[-1], tmpDataSet[0], tmpDataSet[3], tmpDataSet[4], tmpDataSet[2], tmpDataSet[-2], tmpDataSet[-3])
+    cursor.execute(insertDataSQL)
     conn.commit()
-    print("%d번째 hiddenid 밀어넣기 성공" %i)
+    print("%d번쨰 셋 밀어넣기 성공"%i)
+
+    #insertHiddenIdSQL = 'insert into hidden_team_id (team_name, api_team_id) values ("%s", %d)'%(tmpDataSet[0], tmpDataSet[1])
+    #cursor.execute(insertHiddenIdSQL)
+    #conn.commit()
+    #print("%d번째 hiddenid 밀어넣기 성공" %i)
 
 conn.close()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
