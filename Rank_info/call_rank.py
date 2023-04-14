@@ -31,12 +31,12 @@ for j in range(len(tmpApiLeagueId)):
 print(ApiLeagueIdList)
 
 for k in range(len(ApiLeagueIdList)):
-    league_cnt = 0
+    
     for l in range(len(SeasonYearList)):
-        if league_cnt == 2:
-            print('wait for 60s')
-            time.sleep(60)
-            print('have waited 60s. 다시 일해라!')
+        if k % 2 == 1:
+            print('wait for 120s')
+            time.sleep(120)
+            print('have waited 120s. 다시 일해라!')
         else :
             pass
         url = "https://v3.football.api-sports.io/standings?season=%d&league=%d" %(SeasonYearList[l], ApiLeagueIdList[k])
@@ -78,5 +78,3 @@ for k in range(len(ApiLeagueIdList)):
             tmpinsertRankData.append(tmpRankData[n][1])
             # insertRankData에 tmpinsertRankData값 append)
             insertRankData.append(tmpinsertRankData)
-        
-        league_cnt += 1
