@@ -7,6 +7,7 @@ leagueName = "Bundesliga"
 
 
 conn = mysql.connector.connect(user='root', password='tmzkdnxj1', host='34.64.214.96', database ='scout', port='3306')
+cursor = conn.cursor()
 
 url = "https://v3.football.api-sports.io/leagues?name=%s&country=%s&season=%d" %(leagueName, leagueCountry, leagueSeason)
 headers = {
