@@ -77,7 +77,7 @@ for i in range(len(insertTeamInfoList)):
     tmpFormationData = tmpFormationRaw['response']['lineups'][0]['formation']
     
     #rawdata확인
-    #print(tmpFormationData)
+    print(tmpFormationData)
     
     convertFormation = tmpFormationData.replace('-','')
 

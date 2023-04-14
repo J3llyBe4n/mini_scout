@@ -77,7 +77,7 @@ for i in range(len(insertTeamInfoList)):
     tmpFormationData = tmpFormationRaw['response']['lineups'][0]['formation']
     
     #rawdata확인
-    #print(tmpFormationData)
+    print(tmpFormationData)
     
     convertFormation = tmpFormationData.replace('-','')
 
@@ -103,6 +103,7 @@ for i in range(len(insertTeamInfoList)):
 
     #injection data에 formation record도 load 
     insertTeamInfoList[i].append(insertFormationId)
+    print(insertTeamInfoList[i])
 
 # print(insertTeamInfoList)
 

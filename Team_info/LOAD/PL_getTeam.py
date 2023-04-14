@@ -77,7 +77,7 @@ for i in range(len(insertTeamInfoList)):
     tmpFormationData = tmpFormationRaw['response']['lineups'][0]['formation']
     
     #rawdata확인
-    #print(tmpFormationData)
+    print(tmpFormationData)
     
     convertFormation = tmpFormationData.replace('-','')
 
@@ -108,10 +108,10 @@ for i in range(len(insertTeamInfoList)):
 
 for i in range(len(insertTeamInfoList)):
     tmpDataSet = insertTeamInfoList[i]
-    #insertDataSQL = 'insert into team_info (season_id, league_id, formation_id, team_name, stadium_name, stadium_address, team_est_date, owner, head_coach) values (%d, %d, %d, "%s", "%s", "%s", %d, "%s", "%s")' %(tmpDataSet[5], tmpDataSet[6], tmpDataSet[-1], tmpDataSet[0], tmpDataSet[3], tmpDataSet[4], tmpDataSet[2], tmpDataSet[-2], tmpDataSet[-3])
-    #cursor.execute(insertDataSQL)
-    #conn.commit()
-    #print("%d번쨰 셋 밀어넣기 성공"%i)
+    insertDataSQL = 'insert into team_info (season_id, league_id, formation_id, team_name, stadium_name, stadium_address, team_est_date, owner, head_coach) values (%d, %d, %d, "%s", "%s", "%s", %d, "%s", "%s")' %(tmpDataSet[5], tmpDataSet[6], tmpDataSet[-1], tmpDataSet[0], tmpDataSet[3], tmpDataSet[4], tmpDataSet[2], tmpDataSet[-2], tmpDataSet[-3])
+    cursor.execute(insertDataSQL)
+    conn.commit()
+    print("%d번쨰 셋 밀어넣기 성공"%i)
 
     insertHiddenIdSQL = 'insert into hidden_team_id (team_name, api_team_id) values ("%s", %d)'%(tmpDataSet[0], tmpDataSet[1])
     cursor.execute(insertHiddenIdSQL)
