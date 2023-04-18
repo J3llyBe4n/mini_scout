@@ -1,3 +1,8 @@
+'''
+민감한 정보들 코드상에 표현하지 않고 .conf 파일로 정리 -> 디버깅해도 정보 뜨지 않음
+conn.commit() 전 fetchall은 데이터 적재 직전에 print찍어서 확인해보려고 사용했었다.
+api-key를 리스트든/딕이든 으로 넣어두고, 하나의 api-key로 request 날린 횟수나 그런거 csv로 쏘기(저장)
+'''
 import requests
 import mysql.connector
 
